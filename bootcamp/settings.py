@@ -60,7 +60,7 @@ WSGI_APPLICATION = 'bootcamp.wsgi.application'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
@@ -89,14 +89,30 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = PROJECT_DIR.parent.child('media')
 MEDIA_URL = '/media/'
 
-TEMPLATE_DIRS = (
-    PROJECT_DIR.child('templates'),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [PROJECT_DIR.child('templates'),],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+# TEMPLATE_DIRS = (
+#    PROJECT_DIR.child('templates'),
+#)
 
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/feeds/'
 
-ALLOWED_SIGNUP_DOMAINS = ['*']
+ALLOWED_SIGNUP_DOMAINS = ['*@eimrail.com']
 
 FILE_UPLOAD_TEMP_DIR = '/tmp/'
 FILE_UPLOAD_PERMISSIONS = 0644
