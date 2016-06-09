@@ -14,7 +14,6 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
     'default': dj_database_url.config(default=config('DATABASE_URL'))

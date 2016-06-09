@@ -139,30 +139,5 @@ class ActivityViewTest(TestCase):
         
         self.assertEqual(response.status_code, 200)
         self.assertIn('Notifications', response.content)
-    
-    """
-    def test_notifications_appear_to_the_user(self):
-        # creates two fictif users
-        u1 = User()
-        u1.username = "testusername1"
-        u1.password = "secretpassword1"
-        u1.save()
-        u2 = User()
-        u2.username = "testusername2"
-        u2.password = "secretpassword2"
-        u2.save()
         
-        # create one notification
-        notifL = Notification()
-        notifL.from_user = u1
-        notifL.to_user = u2
-        notifL.date = timezone.now()
-        notifL.notification_type = 'Liked'
         
-        # get the url and response of the view
-        url = reverse(notifications, args=[u1])
-        response = self.client.get(url)
-        
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(notifL.notification_type, response.content)
-    """
