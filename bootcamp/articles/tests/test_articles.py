@@ -66,7 +66,6 @@ class ArticleViewsTest(TestCase):
         self.assertTemplateUsed(response, 'articles/article.html')
         # check we've passed the right article into the context
         self.assertEquals(response.context['article'], article1)
-
         # check the article's title appears on the page
         self.assertIn(article1.title, response.content)
 
